@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>生日快乐 🎂</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ 第一页：祝福页 ============ -->
+  <section id="page1" class="page active">
+    <div class="stars" aria-hidden="true"></div>
+
+    <div class="greeting">
+      <p class="line line1">祝我最好最可爱最喜欢的朋友</p>
+      <p class="line line2" id="line2"></p>
+    </div>
+
+    <div class="emoji-layer" id="emojiLayer" aria-hidden="true"></div>
+
+    <button class="cake-button" id="cakeButton" type="button" aria-label="点击吹蜡烛，进入下一页">
+      <span class="cake-emoji">🎂</span>
+      <span class="cake-glow" aria-hidden="true"></span>
+      <span class="cake-hint">↑点击这里吹蜡烛噢</span>
+    </button>
+  </section>
+
+  <!-- 轻触继续提示：信件逐段阅读时使用 -->
+  <div class="continue-hint" id="continueHint">轻触屏幕继续 ▾</div>
+
+  <!-- 背景音乐开关：常驻显示，两个页面都能看到 -->
+  <button class="bgm-toggle" id="bgmToggle" type="button" aria-label="背景音乐开关">
+    <span class="bgm-icon">🔊</span>
+  </button>
+
+  <!-- ============ 第二页：信件页 ============ -->
+  <section id="page2" class="page">
+    <div class="paper">
+      <div class="paper-torn-edge" aria-hidden="true"></div>
+      <div class="seal" aria-hidden="true">🕯️</div>
+
+      <div class="letter-content" id="letterContent"></div>
+
+      <!-- ============================================================
+           视频占位区域：
+           把你自己录制的生日祝福视频文件放到 assets/video/ 文件夹里，
+           并把文件名改成 birthday-video.mp4（或者改下面 source 的 src）。
+           如果想加封面图，把封面图放到 assets/video/ 里，
+           命名为 poster.jpg，或者改下面 poster="" 的路径。
+           详细说明见根目录的 README.md
+      ============================================================= -->
+      <div class="video-section" id="videoSection">
+        <p class="video-hint">🎁 给你准备的视频 🎁</p>
+        <video
+          class="birthday-video"
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/video/poster.jpg">
+          <source src="assets/video/birthday-video.mp4" type="video/mp4">
+          你的浏览器不支持视频播放，可以下载后查看。
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       背景音乐占位：
+       把你想要的背景音乐文件放到 assets/audio/ 文件夹里，
+       命名为 bgm.mp3（或者改下面 src 的路径/文件名）。
+       loop 属性会让音乐自动循环播放。
+       由于手机浏览器规定：网页不能自己在没有用户操作前就出声音，
+       所以音乐会在朋友第一次点击页面任意位置时开始播放，
+       右上角有一个 🔊 按钮，可以随时暂停/继续。
+  ============================================================= -->
+  <audio id="bgm" src="assets/audio/bgm.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
